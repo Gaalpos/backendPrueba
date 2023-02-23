@@ -19,6 +19,6 @@ http://localhost:3000
 
 ## Dependencia de nodemon
 npm install -g nodemon
-npm instal openai
+npm install openai
 
 ```

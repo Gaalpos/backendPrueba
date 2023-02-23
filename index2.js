@@ -8,7 +8,7 @@ let app = express()
 app.use(cors())
 
 const configuration = new Configuration({
-    apiKey: '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'
+    apiKey: '' // recuerda no subir a github la clave
 });
 
 const openai = new OpenAIApi(configuration);
