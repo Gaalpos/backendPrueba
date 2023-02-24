@@ -8,7 +8,7 @@ let app = express()
 app.use(cors())
 
 const configuration = new Configuration({
-    apiKey: '' // recuerda no subir a github la clave
+    apiKey: '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', // recuerda no subir a github la clave
 });
 
 const openai = new OpenAIApi(configuration);
@@ -31,12 +31,20 @@ function suma(req, res) {
 }
 
 
+//http://localhost:3000/pareja?sexo=chico&edad=20&habla=bastante&guapura=guapo
 async function getPareja(req, res) {
+
+    const sexo = req.query.sexo
+    const edad = req.query.edad
+    const habla = req.query.habla
+    const guapura = req.query.guapura
+
+
     const response = await openai.createCompletion({
         model: "text-davinci-003",
-        prompt: "Im 22 and im not very atractive. I dont talk too much either. Give me advice on how to get a girlfriend",
+        prompt: `Soy un ${sexo} de ${edad} años y soy ${guapura}. Dame consejos para ligar`,
         temperature: 0.9,
-        max_tokens: 150,
+        max_tokens: 20,
         top_p: 1,
         frequency_penalty: 0.0,
         presence_penalty: 0.6,
